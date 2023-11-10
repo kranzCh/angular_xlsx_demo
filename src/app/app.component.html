@@ -1,0 +1,32 @@
+<div class="container pt-4">
+  <div class="d-flex flex-row">
+    <div class=" form-floating col-3">
+      <input type="file" class="form-control" id="sheet_input" (change)="onFileChanged($event)">
+      <label for="sheet_input">Import Sheet</label>
+    </div>
+    <div class="my-auto ms-2">
+      <button class="btn btn-outline-success" (click)="import()">Import</button>
+    </div>
+    <div class="my-auto ms-2">
+      <button class="btn btn-outline-warning" (click)="export()">Export</button>
+    </div>
+  </div>
+  <table class="table table-bordered table-responsive-lg table-striped">
+    <thead>
+      <tr>
+        <th>Fiscal Year</th>
+        <th>Quarter</th>
+        <th>Total (in $B)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of rows">
+        <tr>
+          <td>{{row.year}}</td>
+          <td>{{row.quarter}}</td>
+          <td>{{row.totalDO}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
